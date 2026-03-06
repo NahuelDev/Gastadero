@@ -1,11 +1,12 @@
 {
-  "extends": "../../tsconfig.base.json",
-  "compilerOptions": {
-    "outDir": "dist",
-    "types": ["@cloudflare/workers-types"],
-    "lib": ["ES2022"],
-    "jsx": "react-jsx",
-    "jsxImportSource": "hono/jsx"
-  },
-  "include": ["src"]
+    "extends": "../../tsconfig.base.json",
+    "compilerOptions": {
+        "rootDir": "src",
+        "outDir": "dist",
+        "types": ["@cloudflare/workers-types"],
+        "lib": ["ES2022"],
+        "jsx": "react-jsx",
+        "jsxImportSource": "hono/jsx"
+    },
+    "include": ["src"]
 }

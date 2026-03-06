@@ -2,6 +2,7 @@ import { Link, Navigate, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { RegisterForm } from "../components/auth/RegisterForm.js";
 import { useAuth } from "../hooks/useAuth.js";
+import { GastaderoLogo } from "../components/GastaderoLogo.js";
 
 export function RegisterPage() {
   const { t } = useTranslation();
@@ -14,7 +15,11 @@ export function RegisterPage() {
   return (
     <div className="min-h-screen bg-slate-50 flex items-center justify-center px-4">
       <div className="w-full max-w-sm">
-        <h1 className="text-2xl font-bold text-center mb-6 text-slate-800">
+        <div className="flex flex-col items-center mb-8">
+          <GastaderoLogo className="h-16 w-auto text-emerald-500 mb-3" />
+          <span className="text-2xl font-bold text-slate-800 tracking-tight">Gastadero</span>
+        </div>
+        <h1 className="text-lg font-semibold text-center mb-4 text-slate-600">
           {t("auth.register")}
         </h1>
         <div className="bg-white p-6 rounded-xl shadow-sm">
