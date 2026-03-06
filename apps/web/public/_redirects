@@ -1,4 +1,5 @@
+/assets/*           /assets/:splat      200
 /sw.js              /sw.js              200
 /service-worker.js  /service-worker.js  200
 /workbox-*.js       /workbox-*.js       200
-/*    /index.html   200
+/*                  /index.html         200
