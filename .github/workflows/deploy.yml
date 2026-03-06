@@ -24,9 +24,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build shared package
-        run: pnpm --filter @gastos/shared build
-
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
         with:
@@ -54,7 +51,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build
-        run: pnpm --filter @gastos/shared build && pnpm --filter @gastos/web build
+        run: pnpm --filter @gastos/web build
         env:
           VITE_API_URL: https://gastadero-api.nahuelclotet.com.ar
 
