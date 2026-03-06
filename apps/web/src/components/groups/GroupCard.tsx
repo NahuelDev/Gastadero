@@ -5,13 +5,13 @@ export function GroupCard({ group }: { group: Group }) {
   return (
     <Link
       to={`/groups/${group.id}`}
-      className="block bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow"
+      className="block bg-surface p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow"
     >
-      <h3 className="font-semibold text-slate-800">{group.name}</h3>
+      <h3 className="font-semibold text-text-main">{group.name}</h3>
       {group.description && (
-        <p className="text-sm text-slate-500 mt-1">{group.description}</p>
+        <p className="text-sm text-text-muted mt-1">{group.description}</p>
       )}
-      <span className="text-xs text-slate-400 mt-2 block">
+      <span className="text-xs text-text-muted mt-2 block">
         {group.currency}
       </span>
     </Link>

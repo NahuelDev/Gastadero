@@ -35,7 +35,7 @@ export function ReceiptUpload({
       <button
         type="button"
         onClick={() => inputRef.current?.click()}
-        className="border border-dashed border-slate-300 rounded-lg p-4 w-full text-center text-sm text-slate-500 hover:border-emerald-400 hover:text-emerald-500"
+        className="border border-dashed border-slate-300 rounded-lg p-4 w-full text-center text-sm text-text-muted hover:border-primary hover:text-primary"
       >
         {uploading ? t("common.loading") : t("expenses.uploadReceipt")}
       </button>

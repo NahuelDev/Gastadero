@@ -17,7 +17,7 @@ export function BalanceSummary({
   if (!debts.length) {
     return (
       <div className="text-center py-8">
-        <p className="text-emerald-600 font-medium">{t("balances.noDebts")}</p>
+        <p className="text-primary font-medium">{t("balances.noDebts")}</p>
       </div>
     );
   }
@@ -27,13 +27,13 @@ export function BalanceSummary({
       {debts.map((debt, i) => (
         <div
           key={i}
-          className="bg-white p-4 rounded-xl shadow-sm flex items-center justify-between"
+          className="bg-surface p-4 rounded-xl shadow-sm flex items-center justify-between"
         >
           <div>
-            <p className="text-sm text-slate-800">
+            <p className="text-sm text-text-main">
               <span className="font-medium">{debt.fromName}</span>{" "}
               {t("balances.owes")}{" "}
-              <span className="font-semibold text-emerald-500">
+              <span className="font-semibold text-primary">
                 {formatCurrency(debt.amount, currency)}
               </span>{" "}
               {t("balances.to")}{" "}

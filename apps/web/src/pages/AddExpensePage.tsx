@@ -14,7 +14,7 @@ export function AddExpensePage() {
   if (isLoading || !group) {
     return (
       <AppLayout>
-        <p className="text-center text-slate-500">{t("common.loading")}</p>
+        <p className="text-center text-text-muted">{t("common.loading")}</p>
       </AppLayout>
     );
   }
@@ -24,11 +24,11 @@ export function AddExpensePage() {
       <div className="flex items-center gap-2 mb-4">
         <Link
           to={`/groups/${id}`}
-          className="text-slate-500 hover:text-slate-700"
+          className="text-text-muted hover:text-text-main"
         >
           &larr;
         </Link>
-        <h2 className="text-xl font-bold text-slate-800">
+        <h2 className="text-xl font-bold text-text-main">
           {t("expenses.add")}
         </h2>
       </div>

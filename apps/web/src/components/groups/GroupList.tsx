@@ -7,12 +7,12 @@ export function GroupList() {
   const { data: groups, isLoading } = useGroups();
 
   if (isLoading) {
-    return <p className="text-slate-500 text-center">{t("common.loading")}</p>;
+    return <p className="text-text-muted text-center">{t("common.loading")}</p>;
   }
 
   if (!groups?.length) {
     return (
-      <p className="text-slate-500 text-center">{t("groups.noGroups")}</p>
+      <p className="text-text-muted text-center">{t("groups.noGroups")}</p>
     );
   }
 

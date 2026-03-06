@@ -56,11 +56,11 @@ export function GroupSummary({
     <div className="mt-6">
       <button
         onClick={handleCopy}
-        className="w-full border border-slate-200 rounded-lg p-3 text-sm text-slate-600 hover:bg-slate-50"
+        className="w-full border border-slate-200 rounded-lg p-3 text-sm text-text-muted hover:bg-background"
       >
         {copied ? t("groups.linkCopied") : t("expenses.copySummary")}
       </button>
-      <pre className="mt-2 bg-slate-50 rounded-lg p-3 text-xs text-slate-600 whitespace-pre-wrap">
+      <pre className="mt-2 bg-background rounded-lg p-3 text-xs text-text-muted whitespace-pre-wrap">
         {buildMessage()}
       </pre>
     </div>

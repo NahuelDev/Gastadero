@@ -35,12 +35,12 @@ export function CreateGroupModal({ onClose }: { onClose: () => void }) {
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-xl p-6 w-full max-w-sm"
+        className="bg-surface rounded-xl p-6 w-full max-w-sm"
         onClick={(e) => e.stopPropagation()}
       >
         {success ? (
           <div className="text-center py-8">
-            <p className="text-emerald-600 font-medium text-lg">
+            <p className="text-primary font-medium text-lg">
               {t("common.saved")}
             </p>
           </div>
@@ -49,7 +49,7 @@ export function CreateGroupModal({ onClose }: { onClose: () => void }) {
             <h2 className="text-lg font-semibold mb-4">{t("groups.create")}</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">
+                <label className="block text-sm font-medium text-text-main mb-1">
                   {t("groups.name")}
                 </label>
                 <input
@@ -57,28 +57,28 @@ export function CreateGroupModal({ onClose }: { onClose: () => void }) {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
-                  className="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">
+                <label className="block text-sm font-medium text-text-main mb-1">
                   {t("groups.description")}
                 </label>
                 <input
                   type="text"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
-                  className="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">
+                <label className="block text-sm font-medium text-text-main mb-1">
                   {t("groups.currency")}
                 </label>
                 <select
                   value={currency}
                   onChange={(e) => setCurrency(e.target.value)}
-                  className="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
                 >
                   <option value="ARS">ARS</option>
                   <option value="USD">USD</option>
@@ -89,14 +89,14 @@ export function CreateGroupModal({ onClose }: { onClose: () => void }) {
                 <button
                   type="button"
                   onClick={onClose}
-                  className="flex-1 border border-slate-300 py-2 rounded-lg hover:bg-slate-50"
+                  className="flex-1 border border-slate-300 py-2 rounded-lg hover:bg-background"
                 >
                   {t("common.cancel")}
                 </button>
                 <button
                   type="submit"
                   disabled={createGroup.isPending}
-                  className="flex-1 bg-emerald-500 text-white py-2 rounded-lg hover:bg-emerald-600 disabled:opacity-50"
+                  className="flex-1 bg-primary text-white py-2 rounded-lg hover:bg-primary-hover disabled:opacity-50"
                 >
                   {t("common.save")}
                 </button>

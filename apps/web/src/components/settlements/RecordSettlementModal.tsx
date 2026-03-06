@@ -61,12 +61,12 @@ export function RecordSettlementModal({
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-xl p-6 w-full max-w-sm"
+        className="bg-surface rounded-xl p-6 w-full max-w-sm"
         onClick={(e) => e.stopPropagation()}
       >
         {success ? (
           <div className="text-center py-8">
-            <p className="text-emerald-600 font-medium text-lg">
+            <p className="text-primary font-medium text-lg">
               {t("common.saved")}
             </p>
           </div>
@@ -77,13 +77,13 @@ export function RecordSettlementModal({
             </h2>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">
+                <label className="block text-sm font-medium text-text-main mb-1">
                   {t("settlements.from")}
                 </label>
                 <select
                   value={fromMemberId}
                   onChange={(e) => setFromMemberId(e.target.value)}
-                  className="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
                 >
                   {members.map((m) => (
                     <option key={m.id} value={m.id}>
@@ -93,13 +93,13 @@ export function RecordSettlementModal({
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">
+                <label className="block text-sm font-medium text-text-main mb-1">
                   {t("settlements.to")}
                 </label>
                 <select
                   value={toMemberId}
                   onChange={(e) => setToMemberId(e.target.value)}
-                  className="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
                 >
                   {members
                     .filter((m) => m.id !== fromMemberId)
@@ -111,7 +111,7 @@ export function RecordSettlementModal({
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">
+                <label className="block text-sm font-medium text-text-main mb-1">
                   {t("settlements.amount")}
                 </label>
                 <input
@@ -122,32 +122,32 @@ export function RecordSettlementModal({
                   value={amount}
                   onChange={(e) => setAmount(e.target.value)}
                   required
-                  className="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">
+                <label className="block text-sm font-medium text-text-main mb-1">
                   {t("settlements.note")}
                 </label>
                 <input
                   type="text"
                   value={note}
                   onChange={(e) => setNote(e.target.value)}
-                  className="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
                 />
               </div>
               <div className="flex gap-2">
                 <button
                   type="button"
                   onClick={onClose}
-                  className="flex-1 border border-slate-300 py-2 rounded-lg hover:bg-slate-50"
+                  className="flex-1 border border-slate-300 py-2 rounded-lg hover:bg-background"
                 >
                   {t("common.cancel")}
                 </button>
                 <button
                   type="submit"
                   disabled={createSettlement.isPending}
-                  className="flex-1 bg-emerald-500 text-white py-2 rounded-lg hover:bg-emerald-600 disabled:opacity-50"
+                  className="flex-1 bg-primary text-white py-2 rounded-lg hover:bg-primary-hover disabled:opacity-50"
                 >
                   {t("common.save")}
                 </button>

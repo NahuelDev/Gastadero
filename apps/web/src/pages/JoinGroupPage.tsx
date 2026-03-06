@@ -57,20 +57,20 @@ export function JoinGroupPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-50">
-        <p className="text-slate-500">{t("common.loading")}</p>
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        <p className="text-text-muted">{t("common.loading")}</p>
       </div>
     );
   }
 
   if (!group) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-50 px-4">
+      <div className="min-h-screen flex items-center justify-center bg-background px-4">
         <div className="text-center">
-          <p className="text-red-600 mb-4">
+          <p className="text-danger mb-4">
             {error || t("groups.invalidLink")}
           </p>
-          <Link to="/" className="text-emerald-500 hover:underline">
+          <Link to="/" className="text-primary hover:underline">
             {t("groups.goHome")}
           </Link>
         </div>
@@ -79,16 +79,16 @@ export function JoinGroupPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-50 px-4">
-      <div className="bg-white rounded-xl shadow-sm p-6 w-full max-w-sm text-center">
+    <div className="min-h-screen flex items-center justify-center bg-background px-4">
+      <div className="bg-surface rounded-xl shadow-sm p-6 w-full max-w-sm text-center">
         <h2 className="text-lg font-semibold mb-1">{t("groups.joinTitle")}</h2>
-        <p className="text-2xl font-bold text-slate-800 mb-1">{group.name}</p>
+        <p className="text-2xl font-bold text-text-main mb-1">{group.name}</p>
         {group.description && (
-          <p className="text-sm text-slate-500 mb-4">{group.description}</p>
+          <p className="text-sm text-text-muted mb-4">{group.description}</p>
         )}
 
         {error && (
-          <div className="bg-red-50 text-red-600 p-3 rounded text-sm mb-4">
+          <div className="bg-red-50 text-danger p-3 rounded text-sm mb-4">
             {error}
           </div>
         )}
@@ -96,7 +96,7 @@ export function JoinGroupPage() {
         {isAuthenticated ? (
           unclaimed.length > 0 ? (
             <div className="space-y-3">
-              <p className="text-sm text-slate-600 mb-3">
+              <p className="text-sm text-text-muted mb-3">
                 {t("groups.selectMember")}
               </p>
               {unclaimed.map((member) => (
@@ -104,33 +104,33 @@ export function JoinGroupPage() {
                   key={member.id}
                   onClick={() => handleClaim(member.id)}
                   disabled={claiming}
-                  className="w-full border border-slate-200 rounded-lg p-3 hover:bg-emerald-50 hover:border-emerald-300 disabled:opacity-50 text-left"
+                  className="w-full border border-slate-200 rounded-lg p-3 hover:bg-primary/10 hover:border-primary disabled:opacity-50 text-left"
                 >
-                  <span className="font-medium text-slate-800">
+                  <span className="font-medium text-text-main">
                     {member.displayName}
                   </span>
                 </button>
               ))}
             </div>
           ) : (
-            <p className="text-sm text-slate-500">
+            <p className="text-sm text-text-muted">
               {t("groups.noUnclaimed")}
             </p>
           )
         ) : (
           <div className="space-y-3">
-            <p className="text-sm text-slate-600">
+            <p className="text-sm text-text-muted">
               {t("groups.loginToJoin")}
             </p>
             <Link
               to={`/login?redirect=/join/${code}`}
-              className="block w-full bg-emerald-500 text-white py-2.5 rounded-lg hover:bg-emerald-600"
+              className="block w-full bg-primary text-white py-2.5 rounded-lg hover:bg-primary-hover"
             >
               {t("auth.login")}
             </Link>
             <Link
               to={`/register?redirect=/join/${code}`}
-              className="block w-full border border-emerald-500 text-emerald-500 py-2.5 rounded-lg hover:bg-emerald-50"
+              className="block w-full border border-primary text-primary py-2.5 rounded-lg hover:bg-primary/10"
             >
               {t("auth.register")}
             </Link>

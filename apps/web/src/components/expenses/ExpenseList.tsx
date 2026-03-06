@@ -26,10 +26,10 @@ export function ExpenseList({
   if (!expenses.length) {
     return (
       <div className="text-center py-8">
-        <p className="text-slate-500">{t("expenses.noExpenses")}</p>
+        <p className="text-text-muted">{t("expenses.noExpenses")}</p>
         <Link
           to={`/groups/${groupId}/add`}
-          className="inline-block mt-3 text-emerald-500 hover:underline text-sm font-medium"
+          className="inline-block mt-3 text-primary hover:underline text-sm font-medium"
         >
           {t("expenses.add")}
         </Link>
@@ -41,7 +41,7 @@ export function ExpenseList({
     <div className="space-y-2">
       {expenses.map((expense) =>
         editingId === expense.id && members ? (
-          <div key={expense.id} className="bg-white p-4 rounded-xl shadow-sm">
+          <div key={expense.id} className="bg-surface p-4 rounded-xl shadow-sm">
             <AddExpenseForm
               groupId={groupId}
               members={members}
@@ -53,28 +53,28 @@ export function ExpenseList({
         ) : (
           <div
             key={expense.id}
-            className="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow flex items-center justify-between"
+            className="bg-surface p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow flex items-center justify-between"
           >
             <div>
-              <p className="font-medium text-slate-800">
+              <p className="font-medium text-text-main">
                 {expense.description ?? "-"}
               </p>
-              <p className="text-sm text-slate-500">
+              <p className="text-sm text-text-muted">
                 {t("expenses.paidBy")}: {expense.paidByName}
               </p>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-text-muted">
                 {new Date(expense.createdAt).toLocaleDateString()}
               </p>
             </div>
             <div className="text-right">
-              <p className="font-semibold text-slate-800">
+              <p className="font-semibold text-text-main">
                 {formatCurrency(expense.amount, currency)}
               </p>
               <div className="flex gap-2 mt-1 justify-end">
                 {members && (
                   <button
                     onClick={() => setEditingId(expense.id)}
-                    className="text-xs text-emerald-500 hover:underline"
+                    className="text-xs text-primary hover:underline"
                   >
                     {t("common.edit")}
                   </button>
@@ -85,7 +85,7 @@ export function ExpenseList({
                       deleteExpense.mutate(expense.id);
                     }
                   }}
-                  className="text-xs text-red-500 hover:underline"
+                  className="text-xs text-danger hover:underline"
                 >
                   {t("common.delete")}
                 </button>

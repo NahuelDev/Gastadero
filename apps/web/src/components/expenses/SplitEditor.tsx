@@ -113,21 +113,21 @@ export function SplitEditor({
         <button
           type="button"
           onClick={() => setMode("equal")}
-          className={`flex-1 py-2 rounded-lg text-sm ${mode === "equal" ? "bg-emerald-500 text-white" : "border border-slate-300"}`}
+          className={`flex-1 py-2 rounded-lg text-sm ${mode === "equal" ? "bg-primary text-white" : "border border-slate-300"}`}
         >
           {t("expenses.splitEqual")}
         </button>
         <button
           type="button"
           onClick={() => setMode("percentage")}
-          className={`flex-1 py-2 rounded-lg text-sm ${mode === "percentage" ? "bg-emerald-500 text-white" : "border border-slate-300"}`}
+          className={`flex-1 py-2 rounded-lg text-sm ${mode === "percentage" ? "bg-primary text-white" : "border border-slate-300"}`}
         >
           {t("expenses.splitPercent")}
         </button>
         <button
           type="button"
           onClick={() => setMode("custom")}
-          className={`flex-1 py-2 rounded-lg text-sm ${mode === "custom" ? "bg-emerald-500 text-white" : "border border-slate-300"}`}
+          className={`flex-1 py-2 rounded-lg text-sm ${mode === "custom" ? "bg-primary text-white" : "border border-slate-300"}`}
         >
           {t("expenses.splitCustom")}
         </button>
@@ -144,15 +144,15 @@ export function SplitEditor({
                 type="checkbox"
                 checked={selectedMembers.has(member.id)}
                 onChange={() => toggleMember(member.id)}
-                className="rounded border-slate-300 text-emerald-500 focus:ring-emerald-500"
+                className="rounded border-slate-300 text-primary focus:ring-primary"
               />
-              <span className="text-sm text-slate-700">
+              <span className="text-sm text-text-main">
                 {member.displayName}
               </span>
             </label>
           ))}
           {totalAmount > 0 && selectedMembers.size > 0 && (
-            <p className="text-sm text-slate-500">
+            <p className="text-sm text-text-muted">
               {fromCents(Math.floor(totalAmount / selectedMembers.size)).toFixed(2)} c/u
             </p>
           )}
@@ -163,7 +163,7 @@ export function SplitEditor({
         <div className="space-y-2">
           {members.map((member) => (
             <div key={member.id} className="flex items-center gap-2">
-              <span className="text-sm text-slate-700 flex-1">
+              <span className="text-sm text-text-main flex-1">
                 {member.displayName}
               </span>
               <input
@@ -176,12 +176,12 @@ export function SplitEditor({
                 onChange={(e) =>
                   handlePercentageChange(member.id, e.target.value)
                 }
-                className="w-20 border border-slate-300 rounded-lg px-2 py-1 text-sm text-right focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                className="w-20 border border-slate-300 rounded-lg px-2 py-1 text-sm text-right focus:outline-none focus:ring-2 focus:ring-primary"
               />
-              <span className="text-sm text-slate-400">%</span>
+              <span className="text-sm text-text-muted">%</span>
             </div>
           ))}
-          <p className={`text-sm ${Math.abs(totalPct - 100) < 0.01 ? "text-slate-500" : "text-red-500"}`}>
+          <p className={`text-sm ${Math.abs(totalPct - 100) < 0.01 ? "text-text-muted" : "text-danger"}`}>
             Total: {totalPct}%
           </p>
         </div>
@@ -191,7 +191,7 @@ export function SplitEditor({
         <div className="space-y-2">
           {members.map((member) => (
             <div key={member.id} className="flex items-center gap-2">
-              <span className="text-sm text-slate-700 flex-1">
+              <span className="text-sm text-text-main flex-1">
                 {member.displayName}
               </span>
               <input
@@ -203,7 +203,7 @@ export function SplitEditor({
                 onChange={(e) =>
                   handleCustomChange(member.id, e.target.value)
                 }
-                className="w-24 border border-slate-300 rounded-lg px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                className="w-24 border border-slate-300 rounded-lg px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
               />
             </div>
           ))}
@@ -213,7 +213,7 @@ export function SplitEditor({
             );
             const expected = fromCents(totalAmount);
             return (
-              <p className={`text-sm ${Math.abs(customTotal - expected) < 0.01 ? "text-slate-500" : "text-red-500"}`}>
+              <p className={`text-sm ${Math.abs(customTotal - expected) < 0.01 ? "text-text-muted" : "text-danger"}`}>
                 Total: {customTotal.toFixed(2)} / {expected.toFixed(2)}
               </p>
             );

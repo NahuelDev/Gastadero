@@ -17,7 +17,7 @@ export function WhatsAppShareButton({
   return (
     <button
       onClick={() => shareViaWhatsApp(debtorName, amount, groupName, currency)}
-      className="text-xs bg-emerald-500 text-white px-3 py-1.5 rounded-lg hover:bg-emerald-600 whitespace-nowrap"
+      className="text-xs bg-primary text-white px-3 py-1.5 rounded-lg hover:bg-primary-hover whitespace-nowrap"
     >
       {t("balances.shareWhatsApp")}
     </button>

@@ -41,12 +41,12 @@ export function AddMemberModal({
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-xl p-6 w-full max-w-sm"
+        className="bg-surface rounded-xl p-6 w-full max-w-sm"
         onClick={(e) => e.stopPropagation()}
       >
         {success ? (
           <div className="text-center py-8">
-            <p className="text-emerald-600 font-medium text-lg">
+            <p className="text-primary font-medium text-lg">
               {t("common.saved")}
             </p>
           </div>
@@ -57,12 +57,12 @@ export function AddMemberModal({
             </h2>
             <form onSubmit={handleSubmit} className="space-y-4">
               {error && (
-                <div className="bg-red-50 text-red-600 p-3 rounded text-sm">
+                <div className="bg-red-50 text-danger p-3 rounded text-sm">
                   {error}
                 </div>
               )}
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">
+                <label className="block text-sm font-medium text-text-main mb-1">
                   {t("groups.memberName")}
                 </label>
                 <input
@@ -71,21 +71,21 @@ export function AddMemberModal({
                   onChange={(e) => setDisplayName(e.target.value)}
                   required
                   placeholder={t("groups.memberNamePlaceholder")}
-                  className="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
                 />
               </div>
               <div className="flex gap-2">
                 <button
                   type="button"
                   onClick={onClose}
-                  className="flex-1 border border-slate-300 py-2 rounded-lg hover:bg-slate-50"
+                  className="flex-1 border border-slate-300 py-2 rounded-lg hover:bg-background"
                 >
                   {t("common.cancel")}
                 </button>
                 <button
                   type="submit"
                   disabled={addMember.isPending}
-                  className="flex-1 bg-emerald-500 text-white py-2 rounded-lg hover:bg-emerald-600 disabled:opacity-50"
+                  className="flex-1 bg-primary text-white py-2 rounded-lg hover:bg-primary-hover disabled:opacity-50"
                 >
                   {t("common.save")}
                 </button>

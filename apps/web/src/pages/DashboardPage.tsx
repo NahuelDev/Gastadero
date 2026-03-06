@@ -11,12 +11,12 @@ export function DashboardPage() {
   return (
     <AppLayout>
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-xl font-bold text-slate-800">
+        <h2 className="text-xl font-bold text-text-main">
           {t("groups.title")}
         </h2>
         <button
           onClick={() => setShowCreate(true)}
-          className="bg-emerald-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-emerald-600"
+          className="bg-primary text-white px-4 py-2 rounded-lg text-sm hover:bg-primary-hover"
         >
           {t("groups.create")}
         </button>

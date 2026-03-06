@@ -43,7 +43,7 @@ export function GroupDetailPage() {
   if (isLoading || !group) {
     return (
       <AppLayout>
-        <p className="text-center text-slate-500">{t("common.loading")}</p>
+        <p className="text-center text-text-muted">{t("common.loading")}</p>
       </AppLayout>
     );
   }
@@ -58,8 +58,8 @@ export function GroupDetailPage() {
     <AppLayout>
       <div className="flex items-center justify-between mb-4">
         <div>
-          <h2 className="text-xl font-bold text-slate-800">{group.name}</h2>
-          <p className="text-sm text-slate-500">
+          <h2 className="text-xl font-bold text-text-main">{group.name}</h2>
+          <p className="text-sm text-text-muted">
             {group.members.length} {t("groups.members").toLowerCase()}
           </p>
         </div>
@@ -100,8 +100,8 @@ export function GroupDetailPage() {
             onClick={() => setTab(t.key)}
             className={`flex-1 py-2 text-sm font-medium border-b-2 ${
               tab === t.key
-                ? "border-emerald-500 text-emerald-500"
-                : "border-transparent text-slate-500 hover:text-slate-700"
+                ? "border-primary text-primary"
+                : "border-transparent text-text-muted hover:text-text-main"
             }`}
           >
             {t.label}
@@ -114,7 +114,7 @@ export function GroupDetailPage() {
         <div>
           <Link
             to={`/groups/${id}/add`}
-            className="block w-full bg-emerald-500 text-white text-center py-2 rounded-lg hover:bg-emerald-600 mb-4"
+            className="block w-full bg-primary text-white text-center py-2 rounded-lg hover:bg-primary-hover mb-4"
           >
             {t("expenses.add")}
           </Link>
@@ -143,7 +143,7 @@ export function GroupDetailPage() {
           />
           <button
             onClick={() => setShowSettle(true)}
-            className="w-full mt-4 border border-emerald-500 text-emerald-500 py-2 rounded-lg hover:bg-emerald-50"
+            className="w-full mt-4 border border-primary text-primary py-2 rounded-lg hover:bg-primary/10"
           >
             {t("balances.settle")}
           </button>
