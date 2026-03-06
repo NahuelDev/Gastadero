@@ -3,7 +3,7 @@ main = "src/index.ts"
 compatibility_date = "2025-01-01"
 
 [[routes]]
-pattern = "gastadero-api.nahuelclotet.com.ar/*"
+pattern = "gastadero-api.nahuelclotet.com.ar"
 custom_domain = true
 
 [[d1_databases]]
