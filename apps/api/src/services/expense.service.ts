@@ -1,7 +1,7 @@
-import { eq, desc } from "drizzle-orm";
+import { eq, desc, and } from "drizzle-orm";
 import type { Database } from "../db/client.js";
 import { expenses, expenseSplits, groupMembers } from "../db/schema.js";
-import { notFound } from "../lib/errors.js";
+import { notFound, forbidden } from "../lib/errors.js";
 import type { CreateExpenseRequest } from "@gastos/shared";
 
 export async function createExpense(db: Database, data: CreateExpenseRequest) {
@@ -107,7 +107,7 @@ export async function updateExpense(db: Database, expenseId: string, data: Creat
 export async function deleteExpense(
   db: Database,
   expenseId: string,
-  _userId: string
+  userId: string
 ) {
   const expense = await db
     .select()
@@ -116,6 +116,19 @@ export async function deleteExpense(
     .get();
 
   if (!expense) throw notFound("Expense not found");
+
+  const membership = await db
+    .select({ id: groupMembers.id })
+    .from(groupMembers)
+    .where(
+      and(
+        eq(groupMembers.groupId, expense.groupId),
+        eq(groupMembers.userId, userId)
+      )
+    )
+    .get();
+
+  if (!membership) throw forbidden("You don't have access to this group");
 
   await db.batch([
     db.delete(expenseSplits).where(eq(expenseSplits.expenseId, expenseId)),

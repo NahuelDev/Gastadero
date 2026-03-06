@@ -1,7 +1,23 @@
 import { eq, and, isNull } from "drizzle-orm";
 import type { Database } from "../db/client.js";
 import { groups, groupMembers, users } from "../db/schema.js";
-import { notFound, badRequest } from "../lib/errors.js";
+import { notFound, badRequest, forbidden } from "../lib/errors.js";
+
+export async function assertGroupMembership(
+  db: Database,
+  userId: string,
+  groupId: string
+) {
+  const membership = await db
+    .select({ id: groupMembers.id })
+    .from(groupMembers)
+    .where(
+      and(eq(groupMembers.groupId, groupId), eq(groupMembers.userId, userId))
+    )
+    .get();
+
+  if (!membership) throw forbidden("You don't have access to this group");
+}
 
 export async function listUserGroups(db: Database, userId: string) {
   return db

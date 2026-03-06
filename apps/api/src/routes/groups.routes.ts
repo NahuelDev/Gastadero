@@ -75,6 +75,7 @@ groupRoutes.post(
   async (c) => {
     const { displayName } = c.req.valid("json");
     const db = createDb(c.env.DB);
+    await groupService.assertGroupMembership(db, c.get("userId"), c.req.param("id"));
     const result = await groupService.addMember(
       db,
       c.req.param("id"),

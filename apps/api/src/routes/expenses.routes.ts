@@ -5,6 +5,7 @@ import type { Env } from "../index.js";
 import { authMiddleware } from "../middleware/auth.js";
 import { createDb } from "../db/client.js";
 import * as expenseService from "../services/expense.service.js";
+import { assertGroupMembership } from "../services/group.service.js";
 
 export const expenseRoutes = new Hono<Env>();
 
@@ -13,12 +14,14 @@ expenseRoutes.use("*", authMiddleware);
 expenseRoutes.post("/", zValidator("json", createExpenseSchema), async (c) => {
   const data = c.req.valid("json");
   const db = createDb(c.env.DB);
+  await assertGroupMembership(db, c.get("userId"), data.groupId);
   const result = await expenseService.createExpense(db, data);
   return c.json(result, 201);
 });
 
 expenseRoutes.get("/group/:groupId", async (c) => {
   const db = createDb(c.env.DB);
+  await assertGroupMembership(db, c.get("userId"), c.req.param("groupId"));
   const limit = parseInt(c.req.query("limit") ?? "50");
   const offset = parseInt(c.req.query("offset") ?? "0");
   const expenses = await expenseService.listExpenses(
@@ -33,6 +36,7 @@ expenseRoutes.get("/group/:groupId", async (c) => {
 expenseRoutes.put("/:id", zValidator("json", createExpenseSchema), async (c) => {
   const data = c.req.valid("json");
   const db = createDb(c.env.DB);
+  await assertGroupMembership(db, c.get("userId"), data.groupId);
   const result = await expenseService.updateExpense(db, c.req.param("id"), data);
   return c.json(result);
 });

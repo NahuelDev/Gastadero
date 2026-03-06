@@ -20,7 +20,8 @@
       "Bash(npx wrangler secret put JWT_SECRET)",
       "Bash(VITE_API_URL=https://gastos-api.nahuelclotet.workers.dev npx vite build)",
       "Bash(npx wrangler pages project create gastos-web --production-branch main)",
-      "Bash(npx wrangler pages deploy dist --project-name gastos-web)"
+      "Bash(npx wrangler pages deploy dist --project-name gastos-web)",
+      "Bash(grep -n \"get\\\\|post\\\\|put\\\\|delete\" /c/Users/nahue/gastos-compartidos/apps/api/src/routes/*.ts)"
     ]
   },
   "enabledPlugins": {

@@ -5,6 +5,7 @@ import type { Env } from "../index.js";
 import { authMiddleware } from "../middleware/auth.js";
 import { createDb } from "../db/client.js";
 import * as settlementService from "../services/settlement.service.js";
+import { assertGroupMembership } from "../services/group.service.js";
 
 export const settlementRoutes = new Hono<Env>();
 
@@ -17,6 +18,7 @@ settlementRoutes.post(
     const { groupId, fromMemberId, toMemberId, amount, note } =
       c.req.valid("json");
     const db = createDb(c.env.DB);
+    await assertGroupMembership(db, c.get("userId"), groupId);
     const result = await settlementService.createSettlement(
       db,
       groupId,
@@ -31,6 +33,7 @@ settlementRoutes.post(
 
 settlementRoutes.get("/group/:groupId", async (c) => {
   const db = createDb(c.env.DB);
+  await assertGroupMembership(db, c.get("userId"), c.req.param("groupId"));
   const settlements = await settlementService.listSettlements(
     db,
     c.req.param("groupId")

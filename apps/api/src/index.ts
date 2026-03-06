@@ -24,7 +24,7 @@ const app = new Hono<Env>();
 app.use(
   "*",
   cors({
-    origin: "*",
+    origin: "https://gastadero.nahuelclotet.com.ar",
     allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowHeaders: ["Content-Type", "Authorization"],
   })
