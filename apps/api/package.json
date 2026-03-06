@@ -1,0 +1,27 @@
+{
+  "name": "@gastos/api",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev src/index.ts",
+    "deploy": "wrangler deploy",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "wrangler d1 migrations apply gastos-db --local",
+    "db:migrate:prod": "wrangler d1 migrations apply gastos-db --remote",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "hono": "^4.7.0",
+    "@hono/zod-validator": "^0.7.0",
+    "drizzle-orm": "^0.45.0",
+    "@gastos/shared": "workspace:*",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0",
+    "drizzle-kit": "^0.30.0",
+    "@cloudflare/workers-types": "^4.0.0",
+    "typescript": "^5.7.0"
+  }
+}

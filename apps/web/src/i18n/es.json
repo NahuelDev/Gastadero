@@ -1,0 +1,79 @@
+{
+  "app": {
+    "title": "Gastos Compartidos"
+  },
+  "auth": {
+    "login": "Iniciar sesion",
+    "register": "Registrarse",
+    "email": "Email",
+    "password": "Contrasena",
+    "displayName": "Nombre",
+    "noAccount": "No tenes cuenta?",
+    "hasAccount": "Ya tenes cuenta?",
+    "logout": "Cerrar sesion"
+  },
+  "groups": {
+    "title": "Mis Grupos",
+    "create": "Crear Grupo",
+    "name": "Nombre del grupo",
+    "description": "Descripcion",
+    "currency": "Moneda",
+    "members": "Miembros",
+    "addMember": "Agregar miembro",
+    "memberName": "Nombre o apodo",
+    "memberNamePlaceholder": "Ej: Juan, Mami, etc.",
+    "noGroups": "No tenes ningun grupo todavia",
+    "shareLink": "Copiar link",
+    "linkCopied": "Link copiado!",
+    "joinTitle": "Te invitaron a un grupo",
+    "selectMember": "Selecciona cual sos vos",
+    "noUnclaimed": "No hay miembros disponibles para reclamar",
+    "loginToJoin": "Inicia sesion o registrate para unirte",
+    "invalidLink": "El link de invitacion no es valido",
+    "goHome": "Ir al inicio"
+  },
+  "expenses": {
+    "title": "Gastos",
+    "add": "Agregar Gasto",
+    "description": "Descripcion",
+    "amount": "Monto",
+    "paidBy": "Pagado por",
+    "splitEqual": "Dividir en partes iguales",
+    "splitCustom": "Monto",
+    "splitPercent": "Porcentaje",
+    "copySummary": "Copiar resumen",
+    "receipt": "Comprobante",
+    "uploadReceipt": "Subir comprobante",
+    "noExpenses": "No hay gastos registrados",
+    "splitMismatch": "La suma de las partes debe ser igual al monto total",
+    "confirmDelete": "Seguro que queres eliminar este gasto?"
+  },
+  "balances": {
+    "title": "Balances",
+    "owes": "debe",
+    "to": "a",
+    "noDebts": "Todas las deudas estan saldadas!",
+    "settle": "Registrar pago",
+    "shareWhatsApp": "Cobrar por WhatsApp"
+  },
+  "settlements": {
+    "title": "Pagos",
+    "record": "Registrar pago",
+    "from": "De",
+    "to": "Para",
+    "amount": "Monto",
+    "note": "Nota",
+    "noSettlements": "No hay pagos registrados",
+    "noSettlementsHint": "Los pagos aparecen aca cuando alguien salda una deuda"
+  },
+  "common": {
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "loading": "Cargando...",
+    "error": "Ocurrio un error",
+    "downloadPdf": "Descargar PDF",
+    "saved": "Guardado!"
+  }
+}

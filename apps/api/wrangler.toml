@@ -1,0 +1,13 @@
+name = "gastos-api"
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "gastos-db"
+database_id = "bfbceccd-2aec-4577-b6aa-cec9144ed552"
+migrations_dir = "drizzle/migrations"
+
+[[r2_buckets]]
+binding = "RECEIPTS"
+bucket_name = "gastos-receipts"

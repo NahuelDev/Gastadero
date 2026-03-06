@@ -1,0 +1,79 @@
+{
+  "app": {
+    "title": "Shared Expenses"
+  },
+  "auth": {
+    "login": "Log in",
+    "register": "Sign up",
+    "email": "Email",
+    "password": "Password",
+    "displayName": "Name",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "logout": "Log out"
+  },
+  "groups": {
+    "title": "My Groups",
+    "create": "Create Group",
+    "name": "Group name",
+    "description": "Description",
+    "currency": "Currency",
+    "members": "Members",
+    "addMember": "Add member",
+    "memberName": "Name or nickname",
+    "memberNamePlaceholder": "E.g. John, Mom, etc.",
+    "noGroups": "You don't have any groups yet",
+    "shareLink": "Copy link",
+    "linkCopied": "Link copied!",
+    "joinTitle": "You've been invited to a group",
+    "selectMember": "Select which one is you",
+    "noUnclaimed": "No available members to claim",
+    "loginToJoin": "Log in or sign up to join",
+    "invalidLink": "This invite link is not valid",
+    "goHome": "Go to home"
+  },
+  "expenses": {
+    "title": "Expenses",
+    "add": "Add Expense",
+    "description": "Description",
+    "amount": "Amount",
+    "paidBy": "Paid by",
+    "splitEqual": "Split equally",
+    "splitCustom": "Amount",
+    "splitPercent": "Percentage",
+    "copySummary": "Copy summary",
+    "receipt": "Receipt",
+    "uploadReceipt": "Upload receipt",
+    "noExpenses": "No expenses recorded",
+    "splitMismatch": "The sum of the parts must equal the total amount",
+    "confirmDelete": "Are you sure you want to delete this expense?"
+  },
+  "balances": {
+    "title": "Balances",
+    "owes": "owes",
+    "to": "to",
+    "noDebts": "All debts are settled!",
+    "settle": "Record payment",
+    "shareWhatsApp": "Collect via WhatsApp"
+  },
+  "settlements": {
+    "title": "Payments",
+    "record": "Record payment",
+    "from": "From",
+    "to": "To",
+    "amount": "Amount",
+    "note": "Note",
+    "noSettlements": "No payments recorded",
+    "noSettlementsHint": "Payments will appear here when someone settles a debt"
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "downloadPdf": "Download PDF",
+    "saved": "Saved!"
+  }
+}

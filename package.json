@@ -1,0 +1,22 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "pnpm -r --parallel dev",
+    "dev:api": "pnpm --filter @gastos/api dev",
+    "dev:web": "pnpm --filter @gastos/web dev",
+    "build": "pnpm --filter @gastos/shared build && pnpm -r --parallel --filter !@gastos/shared build",
+    "db:generate": "pnpm --filter @gastos/api db:generate",
+    "db:migrate": "pnpm --filter @gastos/api db:migrate",
+    "typecheck": "pnpm -r typecheck"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "prettier": "^3.5.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "core-js"
+    ]
+  }
+}
