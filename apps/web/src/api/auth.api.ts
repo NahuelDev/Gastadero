@@ -1,5 +1,11 @@
 import { api, setToken } from "./client.js";
-import type { AuthResponse, LoginRequest, RegisterRequest } from "@gastos/shared";
+import type {
+  AuthResponse,
+  LoginRequest,
+  RegisterRequest,
+  ForgotPasswordRequest,
+  ResetPasswordRequest,
+} from "@gastos/shared";
 
 export async function login(data: LoginRequest): Promise<AuthResponse> {
   const result = await api<AuthResponse>("/auth/login", {
@@ -17,4 +23,22 @@ export async function register(data: RegisterRequest): Promise<AuthResponse> {
   });
   setToken(result.token);
   return result;
+}
+
+export async function forgotPassword(
+  data: ForgotPasswordRequest
+): Promise<{ message: string }> {
+  return api<{ message: string }>("/auth/forgot-password", {
+    method: "POST",
+    body: JSON.stringify(data),
+  });
+}
+
+export async function resetPassword(
+  data: ResetPasswordRequest
+): Promise<{ message: string }> {
+  return api<{ message: string }>("/auth/reset-password", {
+    method: "POST",
+    body: JSON.stringify(data),
+  });
 }

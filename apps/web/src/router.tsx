@@ -6,6 +6,8 @@ import { DashboardPage } from "./pages/DashboardPage.js";
 import { GroupDetailPage } from "./pages/GroupDetailPage.js";
 import { AddExpensePage } from "./pages/AddExpensePage.js";
 import { JoinGroupPage } from "./pages/JoinGroupPage.js";
+import { ForgotPasswordPage } from "./pages/ForgotPasswordPage.js";
+import { ResetPasswordPage } from "./pages/ResetPasswordPage.js";
 
 export function AppRouter() {
   return (
@@ -13,6 +15,8 @@ export function AppRouter() {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/join/:code" element={<JoinGroupPage />} />
+      <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+      <Route path="/reset-password" element={<ResetPasswordPage />} />
       <Route
         path="/"
         element={

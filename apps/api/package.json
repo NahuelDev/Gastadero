@@ -12,16 +12,17 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "hono": "^4.7.0",
+    "@gastos/shared": "workspace:*",
     "@hono/zod-validator": "^0.7.0",
     "drizzle-orm": "^0.45.0",
-    "@gastos/shared": "workspace:*",
+    "hono": "^4.7.0",
+    "resend": "^6.10.0",
     "zod": "^3.24.0"
   },
   "devDependencies": {
-    "wrangler": "^4.0.0",
-    "drizzle-kit": "^0.30.0",
     "@cloudflare/workers-types": "^4.0.0",
-    "typescript": "^5.7.0"
+    "drizzle-kit": "^0.30.0",
+    "typescript": "^5.7.0",
+    "wrangler": "^4.0.0"
   }
 }

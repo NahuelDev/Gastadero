@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "../../hooks/useAuth.js";
 
@@ -54,6 +55,14 @@ export function LoginForm() {
           minLength={6}
           className="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
         />
+      </div>
+      <div className="text-right">
+        <Link
+          to="/forgot-password"
+          className="text-sm text-primary hover:underline"
+        >
+          {t("auth.forgotPassword")}
+        </Link>
       </div>
       <button
         type="submit"

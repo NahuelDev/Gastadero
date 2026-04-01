@@ -79,6 +79,17 @@ export const expenseSplits = sqliteTable(
   (t) => [index("expense_splits_expense_idx").on(t.expenseId)]
 );
 
+export const passwordResetTokens = sqliteTable("password_reset_tokens", {
+  id: text("id").primaryKey(),
+  userId: text("user_id")
+    .notNull()
+    .references(() => users.id),
+  tokenHash: text("token_hash").notNull(),
+  expiresAt: text("expires_at").notNull(),
+  usedAt: text("used_at"),
+  createdAt: text("created_at").default(sql`CURRENT_TIMESTAMP`),
+});
+
 export const settlements = sqliteTable(
   "settlements",
   {

@@ -1,6 +1,11 @@
 import { Hono } from "hono";
 import { zValidator } from "@hono/zod-validator";
-import { loginSchema, registerSchema } from "@gastos/shared";
+import {
+  loginSchema,
+  registerSchema,
+  forgotPasswordSchema,
+  resetPasswordSchema,
+} from "@gastos/shared";
 import type { Env } from "../index.js";
 import { createDb } from "../db/client.js";
 import * as authService from "../services/auth.service.js";
@@ -30,3 +35,30 @@ authRoutes.post("/login", zValidator("json", loginSchema), async (c) => {
   const result = await authService.login(db, email, password, c.env.JWT_SECRET);
   return c.json(result);
 });
+
+authRoutes.post(
+  "/forgot-password",
+  zValidator("json", forgotPasswordSchema),
+  async (c) => {
+    const { email } = c.req.valid("json");
+    const db = createDb(c.env.DB);
+    const result = await authService.requestPasswordReset(
+      db,
+      email,
+      c.env.RESEND_API_KEY,
+      c.env.APP_URL
+    );
+    return c.json(result);
+  }
+);
+
+authRoutes.post(
+  "/reset-password",
+  zValidator("json", resetPasswordSchema),
+  async (c) => {
+    const { token, password } = c.req.valid("json");
+    const db = createDb(c.env.DB);
+    const result = await authService.resetPassword(db, token, password);
+    return c.json(result);
+  }
+);

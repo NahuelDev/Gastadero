@@ -10,7 +10,20 @@
     "displayName": "Name",
     "noAccount": "Don't have an account?",
     "hasAccount": "Already have an account?",
-    "logout": "Log out"
+    "logout": "Log out",
+    "forgotPassword": "Forgot your password?",
+    "forgotPasswordTitle": "Reset password",
+    "forgotPasswordDescription": "Enter your email and we'll send you a link to reset your password.",
+    "forgotPasswordSuccess": "If an account exists with that email, we've sent a password reset link.",
+    "resetPasswordTitle": "New password",
+    "newPassword": "New password",
+    "confirmPassword": "Confirm password",
+    "passwordsMismatch": "Passwords don't match",
+    "resetPasswordSuccess": "Your password has been updated. You can now log in.",
+    "sendResetLink": "Send reset link",
+    "resetPassword": "Reset password",
+    "backToLogin": "Back to login",
+    "invalidToken": "This link is invalid or has expired."
   },
   "groups": {
     "title": "My Groups",

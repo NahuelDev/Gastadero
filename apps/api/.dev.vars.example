@@ -2,3 +2,5 @@
 # Used by Wrangler for local development (never commit .dev.vars)
 
 JWT_SECRET=your-secure-random-secret-here
+RESEND_API_KEY=re_xxxxxxxxxxxx
+APP_URL=http://localhost:5173

@@ -13,6 +13,8 @@ export type Env = {
     DB: D1Database;
     RECEIPTS: R2Bucket;
     JWT_SECRET: string;
+    RESEND_API_KEY: string;
+    APP_URL: string;
   };
   Variables: {
     userId: string;

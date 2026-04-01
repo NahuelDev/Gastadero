@@ -10,7 +10,20 @@
     "displayName": "Nombre",
     "noAccount": "No tenes cuenta?",
     "hasAccount": "Ya tenes cuenta?",
-    "logout": "Cerrar sesion"
+    "logout": "Cerrar sesion",
+    "forgotPassword": "Olvidaste tu contrasena?",
+    "forgotPasswordTitle": "Restablecer contrasena",
+    "forgotPasswordDescription": "Ingresa tu email y te enviaremos un link para restablecer tu contrasena.",
+    "forgotPasswordSuccess": "Si existe una cuenta con ese email, enviamos un link para restablecer la contrasena.",
+    "resetPasswordTitle": "Nueva contrasena",
+    "newPassword": "Nueva contrasena",
+    "confirmPassword": "Confirmar contrasena",
+    "passwordsMismatch": "Las contrasenas no coinciden",
+    "resetPasswordSuccess": "Tu contrasena fue actualizada. Ya podes iniciar sesion.",
+    "sendResetLink": "Enviar link",
+    "resetPassword": "Restablecer contrasena",
+    "backToLogin": "Volver al login",
+    "invalidToken": "El link es invalido o ya expiro."
   },
   "groups": {
     "title": "Mis Grupos",

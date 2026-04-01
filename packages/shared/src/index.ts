@@ -4,6 +4,8 @@ export type {
   LoginRequest,
   RegisterRequest,
   AuthResponse,
+  ForgotPasswordRequest,
+  ResetPasswordRequest,
 } from "./types/user.js";
 export type {
   Group,
@@ -29,7 +31,7 @@ export type {
 } from "./types/balance.js";
 
 // Schemas
-export { loginSchema, registerSchema } from "./schemas/user.schema.js";
+export { loginSchema, registerSchema, forgotPasswordSchema, resetPasswordSchema } from "./schemas/user.schema.js";
 export { createGroupSchema, addMemberSchema } from "./schemas/group.schema.js";
 export { createExpenseSchema } from "./schemas/expense.schema.js";
 export { createSettlementSchema } from "./schemas/settlement.schema.js";
