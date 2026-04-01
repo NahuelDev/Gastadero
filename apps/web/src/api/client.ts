@@ -35,13 +35,15 @@ export async function api<T>(
 
   if (res.status === 401) {
     clearToken();
-    window.location.href = "/login";
-    throw new Error("Unauthorized");
+    if (!window.location.pathname.startsWith("/login")) {
+      window.location.href = "/login";
+    }
   }
 
   if (!res.ok) {
     const body = await res.json().catch(() => ({}));
-    throw new Error((body as { error?: string }).error ?? "Request failed");
+    const msg = (body as { error?: unknown }).error;
+    throw new Error(typeof msg === "string" ? msg : "Request failed");
   }
 
   return res.json() as Promise<T>;
