@@ -22,10 +22,10 @@ export async function getGroupBalances(db: Database, groupId: string) {
       INNER JOIN expenses e ON es.expense_id = e.id
       WHERE e.group_id = ${groupId}
       UNION ALL
-      SELECT from_member_id as member_id, 0 as paid, amount as owed
+      SELECT from_member_id as member_id, amount as paid, 0 as owed
       FROM settlements WHERE group_id = ${groupId}
       UNION ALL
-      SELECT to_member_id as member_id, amount as paid, 0 as owed
+      SELECT to_member_id as member_id, 0 as paid, amount as owed
       FROM settlements WHERE group_id = ${groupId}
     ) b
     INNER JOIN group_members gm ON b.member_id = gm.id
